@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services Beyond</title>
+</head>
+<body>
+    {% for service in services %}
+        {{ service.category_name }}<br>
+        {{ service.company_name }}<br>
+        {{ service.contact_us }}<br>
+        {{ service.due_date }}<br>
+        {{ service.email_us }}<br>
+        {{ service.job_description }}<br>
+    {% endfor %}
+</body>
+</html>
