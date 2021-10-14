@@ -90,9 +90,27 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_services")
+@app.route("/add_services", methods=["GET", "POST"])
 def add_services():
-    return render_template("add_services.html")
+    if request.method == "POST":
+        service = {
+            "url_img": request.form.get("url_img"),
+            "category_name": request.form.get("category_name"),
+            "your_name": request.form.get("your_name"),
+            "job_description": request.form.get("job_description"),
+            "contact_us": request.form.get("contact_us"),
+            "email_us": request.form.get("email_us"),
+            "due_date": request.form.get("due_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.services.insert_one(service)
+        flash("Task Successfully Added")
+        return redirect(url_for("home"))
+
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("add_services.html", categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
