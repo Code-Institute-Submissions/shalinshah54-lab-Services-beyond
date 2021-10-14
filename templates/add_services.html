@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h3 class="grey-darken-3-text text-darken-4 center-align">Add your Services</h3>
+
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
+                    <input id="your_name" name="your_name" minlength="5" maxlength="50"
+                        type="text" class="validate" required>
+                    <label for="your_name">Enter Your Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
+                    <textarea id="job_description" name="job_description" minlength="5"
+                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                    <label for="job_description">Job Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-phone left prefix orange-text text-darken-4"></i>
+                    <input id="contact_us" name="contact_us" type="tel" minlength="9" maxlength="13" class="validate" required>
+                    <label for="contact_us">Contact Number</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                   <i class="fa-solid fa-at left prefix orange-text text-darken-4"></i> 
+                  <input id="email_us" name="email_us" type="email" class="validate" required>
+                  <label for="email_us">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-calendar-alt prefix orange-text text-darken-4"></i>
+                    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
+                    <label for="due_date">Date</label>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,13 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
    
+
     {% for service in services %}
-        {{ service.url_img }}<br>
-        {{ service.category_name }}<br>
-        {{ service.company_name }}<br>
-        {{ service.contact_us }}<br>
-        {{ service.due_date }}<br>
-        {{ service.email_us }}<br>
-        {{ service.job_description }}<br>
-    {% endfor %}
+        <div class="row">
+          <div class="col s12 m6 l4">
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="{{ url_for('static', filename='images/cleaning.jpg') }}">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4"><strong>{{ service.category_name }}</strong>
+                  <i class="fas fa-ellipsis-v right"></i></span>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4"><strong>{{ service.category_name }}</strong><i class="fas fa-times right"></i></span>
+                <p><strong>Name: </strong> {{ service.your_name }}<br>
+                  <strong>Ph: </strong>{{ service.contact_us }}<br>
+                  <strong>Email:</strong> {{ service.email_us }}<br>
+                  <strong>Date:</strong> {{ service.due_date }}<br>
+                  <strong>Description</strong>: {{ service.job_description }}<br> 
+                </p>
+              </div>
+            </div>
+          </div>
+          </div>  
+   {% endfor %}
 {% endblock %}    

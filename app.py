@@ -21,7 +21,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    services = mongo.db.services.find()
+    services = list(mongo.db.services.find())
     return render_template("services.html", services=services)
 
 
@@ -89,6 +89,10 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
+
+@app.route("/add_services")
+def add_services():
+    return render_template("add_services.html")
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
