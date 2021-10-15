@@ -132,6 +132,12 @@ def edit_service(service_id):
     return render_template("edit_service.html", service=service, categories=categories)
 
 
+@app.route("/delet_service/<service_id>")
+def delet_service(service_id):
+     mongo.db.services.remove({"_id": ObjectId(service_id)})
+     flash("Task Successfully Deleted")
+     return redirect(url_for("home"))
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
