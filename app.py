@@ -111,6 +111,27 @@ def add_services():
     return render_template("add_services.html", categories=categories)
 
 
+@app.route("/edit_service/<service_id>", methods=["GET", "POST"])
+def edit_service(service_id):
+    if request.method == "POST":
+        submit = {
+            "url_img": request.form.get("url_img"),
+            "category_name": request.form.get("category_name"),
+            "your_name": request.form.get("your_name"),
+            "job_description": request.form.get("job_description"),
+            "contact_us": request.form.get("contact_us"),
+            "email_us": request.form.get("email_us"),
+            "due_date": request.form.get("due_date"),
+            "created_by": session["user"]
+        }
+        mongo.db.services.update({"_id": ObjectId(service_id)}, submit)
+        flash("Task Successfully Updated")
+       
+    service = mongo.db.services.find_one({"_id": ObjectId(service_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("edit_service.html", service=service, categories=categories)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

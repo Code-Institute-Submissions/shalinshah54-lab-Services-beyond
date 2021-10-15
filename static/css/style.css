@@ -22,3 +22,9 @@ body {
     height: 200px;
 }
 
+a .btn-done .btn-edit {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+

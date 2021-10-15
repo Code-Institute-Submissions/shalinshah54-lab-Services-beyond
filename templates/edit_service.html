@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h3 class="grey-darken-3-text text-darken-4 center-align">Add your Services</h3>
+    <h3 class="grey-darken-3-text text-darken-4 center-align">Edit your Services</h3>
 
     <div class="row card-panel grey lighten-4">
-        <form class="col s12" method="POST" action="">
+        <form class="col s12" method="POST" action="{{ url_for('edit_service', service_id=service._id) }}">
             <!-- <div class="row col s12">
                 <div class="input-field ">
                     <i class="far fa-images prefix orange-text text-darken-4"></i>
@@ -19,7 +19,11 @@
 					<select id="category_name" name="category_name" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
-                            <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% if category.category_name == service.category_name %}
+                                <option value="{{ category.category_name }}" selected>{{ category.category_name }}</option>
+                            {% else %}
+                                <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>
 					<label for="category_name">Category</label>
@@ -29,7 +33,7 @@
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
                     <input id="your_name" name="your_name" minlength="5" maxlength="50"
-                        type="text" class="validate" required>
+                        value="{{ service.your_name }}" type="text" class="validate" required>
                     <label for="your_name">Enter Your Name</label>
                 </div>
             </div>
@@ -37,35 +41,40 @@
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
                     <textarea id="job_description" name="job_description" minlength="5"
-                        maxlength="200" class="materialize-textarea validate" required></textarea>
+                        maxlength="200" class="materialize-textarea validate" required>
+                        {{- service.job_description -}}
+                    </textarea>
                     <label for="job_description">Job Description</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-phone left prefix orange-text text-darken-4"></i>
-                    <input id="contact_us" name="contact_us" type="tel" minlength="9" maxlength="13" class="validate" required>
+                    <input id="contact_us" name="contact_us" type="tel" minlength="9" maxlength="13" value="{{- service.contact_us -}}" class="validate" required>
                     <label for="contact_us">Contact Number</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                    <i class="fa-solid fa-at left prefix orange-text text-darken-4"></i> 
-                  <input id="email_us" name="email_us" type="email" class="validate" required>
+                  <input id="email_us" name="email_us" type="email" value="{{- service.email_us -}}" class="validate" required>
                   <label for="email_us">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix orange-text text-darken-4"></i>
-                    <input id="due_date" name="due_date" type="text" class="datepicker validate" required>
+                    <input id="due_date" name="due_date"  value="{{ service.due_date }}" type="text" class="datepicker validate" required>
                     <label for="due_date">Date</label>
                 </div>
             </div>
             <div class="row">
                 <div class="col s12 center-align">
-                    <button type="submit" class="btn-large orange darken-4 text-shadow">
-                        Add Task <i class="fas fa-plus-square right"></i>
+                    <a href="{{ url_for('home') }}" class="btn-large red text-shadow">
+                        Cancel <i class="fas fa-times-circle right"></i>
+                    </a>
+                    <button type="submit" class="btn-large light-blue lighten-1 btn-edit">
+                        Edit Task <i class="fas fa-edit right"></i>
                     </button>
                 </div>
             </div>
