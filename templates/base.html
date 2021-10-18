@@ -17,7 +17,7 @@
         <nav class="nav-extended orange darken-3 z-depth-3 text-darken-2 text-shadow">
             <div class="nav-wrapper">
               <a href="{{ url_for('home') }}" class="brand-logo">Services Beyond</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+              <a href="{{ url_for('home') }}" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
                   <li><a href="{{ url_for('home') }}">Home</a></li>
                   {% if session.user %}
@@ -65,7 +65,7 @@
         {% endblock %}
     </main>
     </section>
-        <div id="footer" class="center-align">
+        <div id="footer" class="brown-text center-align">
         <p class="footer-text">&copy; Services Beyond, 2021</p>
     </div>
 
