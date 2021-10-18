@@ -13,6 +13,14 @@ body {
     font-family: Oswald, sans-serif;
 }
 
+.sidenav{
+    background-color: rgb(209, 191, 111);
+}
+
+nav ul a {
+    color: black;
+}
+
 .container {
    min-width: 100%;
 }
