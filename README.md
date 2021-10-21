@@ -159,3 +159,114 @@ Both are required fields and by clicking on the button it is validated and messa
 - This option only visible to the user once they are logged into the page, user can simply select the logout option and they will be loggout from the page, python function will execute once user select logout option and redirect them to login page immediately and display flash message accordingly.
 
 ## Features to be added in future
+- I would like to add more defensive safety for the users. Using more security for the password and maybe two step verification.
+- I would like the profile page to display more features then just the users name.I would like the user to see the posted services on his profile and can edit and delete from that page.
+- I would like to add a conformation on the delete the service. SO a modal with conformation can check twice if the user wants to delete the service. 
+- I would like after search the result should appear right there or should be able to redirect to the page this task is happening.
+
+## Issues and Debugging
+- When starting the gitpot after completely closing it down the env.py file is  not present in the local file. So the error would show the flask needs to installed. Then after installing the flask i have to generate the env.py file again by adding all the cconfiguration like ("IP", "0.0.0.0"), ("PORT", "5000"),
+("SECURITY_KEY", ""), ("MONGO_URI", mongodb+srv://task:<password>@myfirstclustera.fwmaz.mongodb.net/<name-DB>?retryWrites=true&w=majority), ("MONGO_DBNAME", "").  After adding all this I still got the error of install PyMongo and flask_pymongo. Then I used pip intall flask_pymongo and pip install dnspython. After doing all this the app was restarted and it will run. After debugging it [app file](static/images/debugged-env.jpg).
+- With python while adding the search app I only added the "GET" method and the search would not function the way it needs to. Then I went back to the tutorial videos and then found out that search has a ["GET", "POST"] methods.
+- Working with PyMongo I was getting an error where I was not able to connect my mongoDB to the site. Then after going through I found out that the password I was entering in MONGO_URI was incorrect. After changing the password it was connected.
+- Working with jinja templates I was getting alot of spell check errors because I have placed var name as services and service. After figuring out the spelling mistakes I was able to work the browser properly.
+- Browser threw werkzeug.routing.BuildError while I was initially testing my registration page, this took me a while to figure out as I couldn't spot any issue in my codes and neither any speeling error, however I have somehow spoted that there was on app.py file as I as missing @ symbol on my routing and this was causing an error which solved after I corrected this.
+
+## Technologies Used
+
+### Languages Used
+- [Python](https://www.python.org/)
+    - I have used  **Python** as the back-end programming language for my project.
+- [HTML](https://en.wikipedia.org/wiki/HTML)
+    - I have used **HTML** as the main structural element of my project.
+- [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+    - The project uses **CSS** to style and theme pages..
+ - [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+    - The project uses **Javascript** to allow for DOM manipulation.
+
+### Frameworks, Libraries, Programme and Resources Used  
+- [JQuery](https://jquery.com)
+  - The project uses **jQuery** as the primary JavaScript functionality. This is both the standard jQuery that is built with Materialize components, and my custom jQuery used in my script.js file.        
+- [Flask](http://flask.palletsprojects.com/en/1.1.x/)
+  - The project uses **Flask**, which is a Python microframework. **Flask** help to dynamically generate pages, generate dynamic links, and content within the application.
+- [PyMongo](https://api.mongodb.com/python/current/)
+    - The project uses **PyMongo** as the Python API for MongoDB. This API enables linking the data from the back-end database to the front-end app.
+- [Materialize](https://materializecss.com/)
+    - The project uses the **Materialize** framework to simplify the structure of the website and make the website responsive easily.
+- [MongoDB](https://www.mongodb.com/)
+    - The project uses *** MongoDB *** to store the database in the cloud. The information displayed in the front-end is pulled from the database store.
+- [Jinja](https://jinja.palletsprojects.com/en/2.10.x/)
+  - Jinja templating language was used with flask in the HTML code. Jinja was used simplify my HTML code, avoid repetition, and allow simpler linking of the back-end to the front-end.
+- [Google Fonts:](https://fonts.google.com/)
+    - Google font was used to embed the YuseiMagic and Ovo types font which are used on all pages throughout the website.
+- [Font Awesome:](https://fontawesome.com/)
+    - Font Awesome was used to add icons for aesthetic and UX purposes.
+- [Figma](https://figma.com/)
+    - Balsamiq was used to create the wireframes during the design process.
+- [Gitpod](https://www.gitpod.io/)
+    - Gitpod was used as IDE for local development.
+- [GitHub](https://github.com/)
+    - GitHub was used to store the projects code after being pushed from Gitpod.
+- [Git](https://git-scm.com/)
+  - Git was used as aversion control system to regularly and add commit changes made to project and pushing them to GitHub
+- [Heroku](https://id.heroku.com/login)
+  - Heroku was used as the hosting platform to deploy my project.
+- [HTML Formatter](https://htmlformatter.com/) 
+    - HTML formatter was used to format HTML code
+- [W3.CSS](https://www.w3schools.com/w3css/defaulT.asp) 
+    - General resources.
+- [Stack Overflow](https://pt.stackoverflow.com/)
+    - General resources.
+- [Youtube](https://www.youtube.com/) 
+   - General resources.
+- Code Institute SLACK Community
+   -General resources
+
+
+## Code Validation
+
+## Testing 
+
+## Deployment
+
+I used GitHub for my version control and Heroku to host the live version of my project. To deploy my website to Heroku, use following steps:
+
+1. Create the app in Heroku.
+2. Run the `npm install -g heroku` command in the terminal window to install heroku in the workspace.
+3. Run the `heroku login -i` command in the terminal window and enter credentials to login to Heroku.
+4. Add and committ the files to Git using the `git add .` and `git commit -m ""` commands in the terminal window.
+5. Create a requirements.txt file using the following command in the terminal window:
+
+    ```pip3 freeze --local > requirements.txt```
+
+7. Created a Procfile using the following command in the terminal window:
+
+  ```echo web: python <fileName.py> > Procfile```
+
+8. Run the `git push -u heroku main` command in the terminal window to push the app to Heroku.
+9. Login to the Heroku page and Entered the following Config Var in Heroku:
+   - IP : `0.0.0.0`
+   - PORT : `5000`
+   - MONGO_URI :`mongodb+srv://<username>:<password></password>@<cluster_name>.9kpcw.mongodb.net/<database></database>?retryWrites=true&w=majority` 
+   - SECRET_KEY : `<your_secret_key>`
+   - MONGO_DBNAME : `<database name>`
+10. Select Deploy option on Heroku and choose Github as Deployment method then connect to Github and search for repositery to connect by providing the repo name on search box.
+11. Heroku will then detect the repo on Github then, click connect
+12. Choose main branch as branch to deploy and click Enable automatic Deploys
+13. your project has now deployed to Heroku
+14. In the top right of the heroku dashboard press the "Open App" button to view your deployed Heroku app.
+
+
+## Credits
+- I would like to give credits to [Dev Ed](https://www.youtube.com/c/DevEd) with forms, validation and the scripts.
+- I would like to give credits to [Kevin Powell](https://www.youtube.com/kepowob) for guiding me through better CSS styling.
+
+## Media
+- All the images are from [unsplash](https://unsplash.com/)
+
+## Acknowledgements
+- I would like to thank my mentor Sandeep Agarval for his guidance and advice on this project before submission.
+- Thanks to everyone on Slack Community for always being on-hand with requests and support.
+- Thanks to everyone on CI tutor support team for always providing with the support and guidance.
+- I would like to thank shiv 123-coder from Code institute for inspiring me and giving me ideas for this site.
+- Thanks to everyone from Student Care team (CI) for keeping me update with all changes such as tutor support availibility holiday period and most importantly checking regularly on my progress and always ready to support on my study.
