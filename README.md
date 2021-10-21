@@ -225,6 +225,17 @@ Both are required fields and by clicking on the button it is validated and messa
 
 ## Code Validation
 
+- [W3C Markup Validation](https://validator.w3.org/#validate_by_input) 
+  - W3C Markup Validation was used throughout the process to validate HTML codes
+- [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) 
+  - W3C CSS Validation was used to vaildate CSS codes
+- [JSHINT](https://jshint.com/) 
+  - JSHINT was used for JavaScript code warning & error check.
+- [PEP8 online](http://pep8online.com/)
+  - PEP8 online tool was used to ensure all python codes on projects are PEP8 compliant.
+- [Python Tutor](https://pythontutor.com/visualize.html#mode=edit)
+  - Python tutor was used to visualize the python code and identify any error.
+
 ## Testing 
 
 ## Deployment
