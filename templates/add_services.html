@@ -2,18 +2,11 @@
 {% block content %}
 
     <h3 class="brown-text center-align">Add your Services</h3>
-
+ <!---add services form-->
     <div class="row card-panel grey lighten-4">
         <form class="col s12" method="POST" action="">
-            <!-- <div class="row col s12">
-                <div class="input-field ">
-                    <i class="far fa-images prefix orange-text text-darken-4"></i>
-                    <input id="img_url" name="img_url" type="url" class="validate" required>
-                    <label for="img_url">Image URL</label>
-                    <small class="center-align red-text" id="error_img_url"></small>
-                </div>
-            </div> -->
             <div class="row">
+                 <!---category-->
 				<div class="input-field col s12">
                     <i class="fas fa-folder-open prefix orange-text text-darken-4"></i>
 					<select id="category_name" name="category_name" class="validate" required>
@@ -26,6 +19,7 @@
 				</div>
 			</div>
             <div class="row">
+                 <!---name-->
                 <div class="input-field col s12">
                     <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
                     <input id="your_name" name="your_name" minlength="5" maxlength="50"
@@ -34,6 +28,7 @@
                 </div>
             </div>
             <div class="row">
+                 <!---job description-->
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
                     <textarea id="job_description" name="job_description" minlength="5"
@@ -42,6 +37,7 @@
                 </div>
             </div>
             <div class="row">
+                 <!---contact-->
                 <div class="input-field col s12">
                     <i class="fas fa-phone left prefix orange-text text-darken-4"></i>
                     <input id="contact_us" name="contact_us" type="tel" minlength="9" maxlength="13" class="validate" required>
@@ -49,6 +45,7 @@
                 </div>
             </div>
             <div class="row">
+                 <!---email-->
                 <div class="input-field col s12">
                    <i class="fa-solid fa-at left prefix orange-text text-darken-4"></i> 
                   <input id="email_us" name="email_us" type="email" class="validate" required>
@@ -56,6 +53,7 @@
                 </div>
             </div>
             <div class="row">
+                 <!---date-->
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix orange-text text-darken-4"></i>
                     <input id="due_date" name="due_date" type="text" class="datepicker validate" required>

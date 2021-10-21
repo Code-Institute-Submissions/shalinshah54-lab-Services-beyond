@@ -5,14 +5,6 @@
 
     <div class="row card-panel grey lighten-4">
         <form class="col s12" method="POST" action="{{ url_for('edit_service', service_id=service._id) }}">
-            <!-- <div class="row col s12">
-                <div class="input-field ">
-                    <i class="far fa-images prefix orange-text text-darken-4"></i>
-                    <input id="img_url" name="img_url" type="url" class="validate" required>
-                    <label for="img_url">Image URL</label>
-                    <small class="center-align red-text" id="error_img_url"></small>
-                </div>
-            </div> -->
             <div class="row">
 				<div class="input-field col s12">
                     <i class="fas fa-folder-open prefix orange-text text-darken-4"></i>
@@ -31,6 +23,7 @@
 			</div>
             <div class="row">
                 <div class="input-field col s12">
+                     <!---name-->
                     <i class="fas fa-pencil-alt prefix orange-text text-darken-4"></i>
                     <input id="your_name" name="your_name" minlength="5" maxlength="50"
                         value="{{ service.your_name }}" type="text" class="validate" required>
@@ -39,6 +32,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
+                     <!---job description-->
                     <i class="fas fa-align-left prefix orange-text text-darken-4"></i>
                     <textarea id="job_description" name="job_description" minlength="5"
                         maxlength="200" class="materialize-textarea validate" required>
@@ -50,11 +44,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-phone left prefix orange-text text-darken-4"></i>
+                     <!---contact-->
                     <input id="contact_us" name="contact_us" type="tel" minlength="9" maxlength="13" value="{{- service.contact_us -}}" class="validate" required>
                     <label for="contact_us">Contact Number</label>
                 </div>
             </div>
             <div class="row">
+                 <!---email-->
                 <div class="input-field col s12">
                    <i class="fa-solid fa-at left prefix orange-text text-darken-4"></i> 
                   <input id="email_us" name="email_us" type="email" value="{{- service.email_us -}}" class="validate" required>
@@ -62,6 +58,7 @@
                 </div>
             </div>
             <div class="row">
+                 <!---date-->
                 <div class="input-field col s12">
                     <i class="fas fa-calendar-alt prefix orange-text text-darken-4"></i>
                     <input id="due_date" name="due_date"  value="{{ service.due_date }}" type="text" class="datepicker validate" required>

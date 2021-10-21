@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!---font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" 
         integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+     <!---materialize css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+     <!---css style-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
     {% block style %}
     {% endblock %}
@@ -14,12 +17,13 @@
 </head>
 <body>
     <header>
+         <!---navbar-->
         <nav class="nav-extended orange darken-3 z-depth-3 text-shadow">
             <div class="nav-wrapper">
               <a href="{{ url_for('home') }}" class="black-text brand-logo">Services Beyond</a>
               <a href="{{ url_for('home') }}" data-target="mobile-demo" class="sidenav-trigger right black-text"><i class="fas fa-bars"></i></a>
               <ul class="right hide-on-med-and-down">
-                  <li><a href="{{ url_for('home') }}">Home</a></li>
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
                   {% if session.user %}
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('add_services') }}">Add Services</a></li>
@@ -31,7 +35,7 @@
               </ul>
             </div>
           </nav>
-        
+           <!---sidenav for mobile view-->
           <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             {% if session.user %}
@@ -58,21 +62,23 @@
                 {% endfor %}
             {% endif %}
         {% endwith %}
+        <main class="container">
+            {% block content %}
+            {% endblock %}
+        </main>
     </section>
-
-    <main class="container">
-        {% block content %}
-        {% endblock %}
-    </main>
-    </section>
-        <div id="footer" class="brown-text center-align">
+     <!---footer-->
+    <div id="footer" class="brown-text center-align">
         <p class="footer-text">&copy; Services Beyond, 2021</p>
     </div>
 
+     <!---jquery script-->
     <script
     src="https://code.jquery.com/jquery-3.6.0.min.js" 
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     <!---materialize script-->    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <!---Script-->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block script %}
     {% endblock %}
