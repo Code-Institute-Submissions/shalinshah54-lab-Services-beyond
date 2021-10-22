@@ -237,6 +237,60 @@ Both are required fields and by clicking on the button it is validated and messa
   - Python tutor was used to visualize the python code and identify any error.
 
 ## Testing 
+### First Time User Goals
+
+- As a first time user, I would like to be able to access the Home page and navigate the contents of this website.
+- As the site loads, the users will see the Home page and navigation bar at the top of the page which contains menu items. 
+- The menu items in the navigation bar allow users to access the page(s) of their choice.
+- All the menu items to access the pages tested and all those took the users to the correct pages.
+- As the first time user, I will able to search and look up older post which were made by other users. There descrition.
+- If the searched name is there then the result will show otherwise a black area will be there. If the result is present then on clicking the activator three dots I can slide the card up and see the description and the other information. 
+-  I would like to be able to register and create my own account on the website.
+- In the navigation bar at the top of the page, click on the Register and it will redirect the users to the registration page.
+- The users will be able create their own desired username and add their desired password, then click the register button.
+- Once registration is completed, a flash message will show to confirm the registration is successful
+ I would like to login and be able to add, edit and remove my own jobs.
+- Once the users have successfully registered, they will be able to login by clicking the Login menu in the navigation bar.
+- The login page will be displayed with username and password fields to be filled in, then the users need to click on the login button.
+- Once the login is successful, the users will be redirected to the Profile page where they would be able to display there name. 
+- Once the user is logged in they will see more menu options like Profile, Add Services and Logout. 
+- On clicking on the Add Services the first time user will be able to post there first requirement by filling out a simple form. 
+- The first time user will fill out the required fields on the add services form which includes, a drop down for the categories which they can select one, enter you name, Job description, contact, email and date the job needs to be done. Then by submitting the form a flash message will appear stating that your service has been added successfully. 
+- The user can view the posted service at the bottom of the home page which will display there name, the date and the category for which they want the service. On clicking on the activator the three dots they will be able to see all the other details regarding there post. 
+- At the end the user can logout and continue to see there service on the home page.
+
+### Frequent User Goals
+
+- As a frequent user, I would like to be able to search for any specific services on the website.
+- In the Home page, there is a search function which allows users to find their desired services available by typing in the name of the services.
+- If the service is available, the search result will display the service and if the service is unavailable, the search result will be blank.
+- Once the search result is displaying the available service(s), users will be able to display the details of service(s) by clicking the service name, the slide card will move up and will the description.
+- If at this time returning user feels that the service they posted need to be changed then there is an edit button which will direct them to the add service page. There old form will be present with the filled out fields. The user can edit any field they desire to edit and click on 'Save' button or they can click on the cancel button to if they change there mind. 
+- If they edit the changes will be updated and they will be able to see the changes on the new post at the bottom of the home page. 
+- The returning user can add more services by adding new services by clicking on the add services and following the same steps which were done by a new user.
+- They will see the new posted service on the home page along with the old service which was added previously.
+- The user can log out after making the changes.
+
+## Responsiveness
+This project was required to be totally responsive, and mobile friendly therefore I decided to use Materialize as my main framework for it's cut down components that result in a clean, uncluttered view and minimize to add custom styles. Testing was done using dev-tool during build process, and also a final test of the entire website was done using Android phone to check its responsives.
+- Page was responsive overall and no major issue noticed however here was slightly issue with excess whitespace above and below footer while viewing on Android phone and specially search bar and the rest and search button would position themselves into coloums
+
+
+## Code Validation
+
+### Python code
+- All python codes were checked by using PEP8 online checker - All codes were PEP8 compliant and no issue
+
+### HTML codes
+- HTML codes were tested using [W3C Markup Validation](https://validator.w3.org/#validate_by_input) 
+ - Error jinja shown accross all the pages which is not resolved yet, this is due jinja for loop in the nav links, the block content and if statement generated while loop is running, 
+
+### Javascript codes
+- Codes were checked using [JSHINT](https://jshint.com/) - All codes passed
+
+### CSS codes
+- [W3C CSS Validation](https://jigsaw.w3.org/css-validator/) used for CSS code validation - All codes passed without any error.
+
 
 ## Deployment
 
