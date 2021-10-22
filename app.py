@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-
+# create an instance of flask
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -17,21 +17,25 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# home page
 @app.route("/")
 @app.route("/home")
 def home():
     services = list(mongo.db.services.find())
     return render_template("services.html", services=services)
 
-
+# search field
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     services = list(mongo.db.services.find({"$text": {"$search": query}}))
     return render_template("services.html", services=services)
+"""
+code taken from walkthrough project of CI
+and modified as per project requirement
+"""
 
-
+# register page which have get and post method
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -54,7 +58,7 @@ def register():
         flash("Registration Successful!")
     return render_template("register.html")
 
-
+# login page with the get and post method
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -80,7 +84,7 @@ def login():
 
     return render_template("login.html")
 
-
+# profile page 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab the session user's username from db
@@ -88,7 +92,7 @@ def profile(username):
         {"username": session["user"]})["username"]
     return render_template("profile.html", username=username)
 
-
+# logout page
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -96,7 +100,7 @@ def logout():
     session.pop("user")
     return redirect(url_for("login"))
 
-
+# add services page which has get and post method
 @app.route("/add_services", methods=["GET", "POST"])
 def add_services():
     if request.method == "POST":
@@ -117,7 +121,7 @@ def add_services():
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_services.html", categories=categories)
 
-
+# edit services 
 @app.route("/edit_service/<service_id>", methods=["GET", "POST"])
 def edit_service(service_id):
     if request.method == "POST":
@@ -138,7 +142,7 @@ def edit_service(service_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_service.html", service=service, categories=categories)
 
-
+# delete services
 @app.route("/delete_service/<service_id>")
 def delete_service(service_id):
      mongo.db.services.remove({"_id": ObjectId(service_id)})
